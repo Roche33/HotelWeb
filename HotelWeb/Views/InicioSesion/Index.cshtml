@@ -1,0 +1,52 @@
+﻿
+@{
+    ViewBag.Title = "inicioSesion";
+}
+<div class="bg-[url('https://images.pexels.com/photos/2339009/pexels-photo-2339009.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2')] bg-cover bg-center min-h-screen flex flex-col items-center pt-[100px]"
+     style="font-family: 'Open Sans', sans-serif;">
+    <div class="bg-[#264653]/50 w-[400px] rounded-lg shadow-xl overflow-hidden">
+        <!-- Radios + Labels -->
+        <div class=" text-white flex justify-evenly items-center p-4">
+            <label for="login" class="text-2xl hover:underline cursor-pointer transition-all duration-200">Log in</label>
+            <label for="signup" class="text-2xl tracking-wide hover:underline cursor-pointer transition-all duration-200">Sign up</label>
+        </div>
+
+        <input type="radio" name="menu" id="login" checked class="hidden">
+        <input type="radio" name="menu" id="signup" class="hidden">
+
+        <div class="p-4">
+            <!-- Login Form -->
+            <div id="contenido-login" class="contenido flex flex-col items-center gap-4 p-4  rounded-lg">
+                <input type="text" class=" text-white p-3 rounded-full bg-[#264653]/50 w-full placeholder-white placeholder-opacity-80 focus:outline-none focus:ring-2 focus:ring-[#FADADD]" placeholder="Username">
+                <input type="password" class="text-white p-3 rounded-full bg-[#264653]/50 w-full placeholder-white placeholder-opacity-80 focus:outline-none focus:ring-2 focus:ring-[#FADADD]" placeholder="Contraseña">
+                <button class="bg-[#FADADD]/50 text-white rounded-full text-2xl px-4 py-2 w-full hover:bg-[#FADADD]/70 transition-all duration-200" name="sesion">
+                    Iniciar sesión
+                </button>
+                <div class="flex justify-between w-full p-2">
+                    <a href="#" class="underline hover:text-[#FADADD]/70 transition-all duration-200">¿Olvidaste tu contraseña?</a>
+                </div>
+            </div>
+
+            <!-- Signup Form -->
+            <div id="contenido-signup" class="contenido hidden flex-col items-center gap-4 p-4  rounded-lg">
+                <input type="text" class="text-white p-3 rounded-full bg-[#264653]/50 w-full placeholder-white placeholder-opacity-80 focus:outline-none focus:ring-2 focus:ring-[#FADADD]" placeholder="Nombre">
+                <input type="email" class="text-white p-3 rounded-full bg-[#264653]/50 w-full placeholder-white placeholder-opacity-80 focus:outline-none focus:ring-2 focus:ring-[#FADADD]" placeholder="Correo">
+                <input type="text" class="text-white p-3 rounded-full bg-[#264653]/50 w-full placeholder-white placeholder-opacity-80 focus:outline-none focus:ring-2 focus:ring-[#FADADD]" placeholder="Username">
+                <input type="password" class="text-white p-3 rounded-full bg-[#264653]/50 w-full placeholder-white placeholder-opacity-80 focus:outline-none focus:ring-2 focus:ring-[#FADADD]" placeholder="Contraseña">
+                <button class="bg-[#FADADD]/50 text-white rounded-full text-2xl px-4 py-2 w-full hover:bg-[#FADADD]/70 transition-all duration-200" name="crear">
+                    Crear cuenta
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+    <style>
+        .contenido {
+            display: none;
+        }
+
+        #login:checked ~ div #contenido-login,
+        #signup:checked ~ div #contenido-signup {
+            display: flex;
+        }
+    </style>

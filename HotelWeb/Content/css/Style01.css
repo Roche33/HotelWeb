@@ -1,0 +1,114 @@
+﻿:root {
+    --negro-carbon: #1C1C1C;
+    --azul-indigo: #264653;
+    --rojo-carmesi: #D72638;
+    --rosa-sakura: #FADADD;
+}
+
+body {
+    font-family: 'Open Sans', sans-serif;
+    background: var(--azul-indigo);
+}
+
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.encabezado {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 80%;
+    display: flex;
+    justify-content: space-around;
+    transition: 0.7s;
+    padding: 30px 20px;
+    z-index: 1000;
+}
+
+    .encabezado .logo {
+        position: relative;
+        color: var(--negro-carbon);
+        font-weight: bold;
+        font-size: 2em;
+        letter-spacing: 1.5s;
+        text-decoration: none;
+    }
+
+.logo img {
+    height: 100px;
+    width: auto;
+}
+
+.menu {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+    .menu a {
+        color: var(--negro-carbon);
+        text-decoration: none;
+        font-weight: 600;
+        text-shadow: -1px -1px 0 #fff, 1px -1px 0 #fff, -1px 1px 0 #fff, 1px 1px 0 #fff;
+    }
+
+.encabezado ul {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+    .encabezado ul li {
+        list-style: none;
+    }
+
+        .encabezado ul li a {
+            position: relative;
+            margin: 0 15px;
+            text-decoration: none;
+            color: var(--negro-carbon);
+            letter-spacing: 2px;
+            font-weight: 600;
+            transition: 0.7s;
+        }
+
+.contenedor-fondo {
+    width: 100%;
+    height: 100vh;
+    position: relative;
+    background: url(../Img/fondo.jpg) no-repeat center;
+    background-size: cover;
+    display: flex;
+    align-items: center;
+    cursor: default;
+}
+
+.contendor-glass {
+    width: 45rem;
+    height: 30rem;
+    border: 3px solid #fafafa10;
+    margin-top: 6rem;
+    margin-left: 60px;
+    margin-right: 60px;
+    align-items: left;
+}
+
+
+.efecto-glass {
+    background: #fafafa10;
+    backdrop-filter: blur(0.4rem);
+    -webkit-backdrop-filter: blur(0.4rem); /* para que funcione en la mayoria de navegadores*/
+}
+
+.contendor-glass h2 {
+    color: var(--negro-carbon);
+    text-decoration: none;
+}
+
+.contendor-glass p {
+    color: var(--rosa-sakura);
+}
