@@ -3,62 +3,82 @@
     ViewBag.Title = "Index";
 }
 
-<div class="container">
+<div class="bg-[url('https://images.pexels.com/photos/271639/pexels-photo-271639.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1')] bg-center bg-cover min-h-dvh">
 
-    <div class="slide">
+    <!-- Radios + Labels -->
+    <input type="radio" name="menu" id="inicio" hidden>
+    <input type="radio" name="menu" id="reservaciones" checked hidden>
+    <input type="radio" name="menu" id="contacto" hidden>
 
+    <header class="flex justify-around text-black text-lg py-[30px] px-[20px] w-4/5">
+        <button id="toggle-btn" class="block lg:hidden focus:outline-none">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+            </svg>
+        </button>
 
-        <div class="item" style="background-image: url('@Url.Content("~/Content/Img/kioto.jpg")');">
-            <div class="content">
-                <div class="name">Kioto</div>
-                <div class="des">Una ciudad llena de historia y tradición, famosa por sus templos antiguos, jardines serenos y la belleza de sus paisajes en cada estación.</div>
-                <button>RESERVA YA</button>
-            </div>
-        </div>
-        <div class="item" style="background-image: url('@Url.Content("~/Content/Img/shibuya.jpg")');">
-            <div class="content">
-                <div class="name">Shibuya</div>
-                <div class="des">Centro vibrante de Tokio, conocido por su icónico cruce peatonal, luces brillantes, moda urbana y vida nocturna dinámica.</div>
-                <button>RESERVA YA</button>
-            </div>
-        </div>
-        <div class="item" style="background-image: url('@Url.Content("~/Content/Img/osaka.jpg")');">
-            <div class="content">
-                <div class="name">Osaka</div>
-                <div class="des">Una ciudad energética famosa por su comida callejera, el castillo de Osaka y su ambiente moderno, fusionando tradición y vanguardia.</div>
-                <button>RESERVA YA</button>
-            </div>
-        </div>
-        <div class="item" style="background-image: url('@Url.Content("~/Content/Img/nara.jpg")');">
-            <div class="content">
-                <div class="name">Nara</div>
-                <div class="des">Conocida por sus templos antiguos, parques llenos de ciervos y el impresionante Gran Buda, Nara es un lugar donde la historia y la naturaleza se encuentran.</div>
-                <button>RESERVA YA</button>
-            </div>
-        </div>
-        <div class="item" style="background-image: url('@Url.Content("~/Content/Img/miyajima.jpg")');">
-            <div class="content">
-                <div class="name">Miyajima</div>
-                <div class="des">Miyajima es una isla sagrada cerca de Hiroshima, famosa por su icónico torii flotante, sus templos históricos y los ciervos que deambulan libremente por sus calles.</div>
-                <button>RESERVA YA</button>
-            </div>
-        </div>
-        <div class="item" style="background-image: url('@Url.Content("~/Content/Img/kanazawa.jpg")');">
-            <div class="content">
-                <div class="name">Kanazawa</div>
-                <div class="des">Kanazawa combina tradición y modernidad con elegancia. Es conocida por su distrito de geishas, el jardín Kenroku-en y su castillo, ofreciendo una mirada auténtica al Japón feudal.</div>
-                <button>RESERVA YA</button>
-            </div>
+        <div>
+            <a href="~/Home" class="font-semibold text-3xl w-[50px]"><i class="fa-solid fa-torii-gate"></i></a>
         </div>
 
+        <nav class="hidden lg:flex justify-center gap-4 font-semibold tracking-widest">
+            <a href="~/InicioSesion" class="no-underline mx-4"
+               style="text-shadow: -1px -1px 0 #fff, 1px -1px 0 #fff, -1px 1px 0 #fff, 1px 1px 0 #fff;">
+                <i class="fa-solid fa-circle-user"></i> Inicio de sesión
+            </a>
+            <a href="#" class="no-underline mx-4"
+               style="text-shadow: -1px -1px 0 #fff, 1px -1px 0 #fff, -1px 1px 0 #fff, 1px 1px 0 #fff;">
+                <i class="fa-solid fa-calendar-days"></i> Reservaciones
+            </a>
+            <a href="#" class="no-underline mx-4"
+               style="text-shadow: -1px -1px 0 #fff, 1px -1px 0 #fff, -1px 1px 0 #fff, 1px 1px 0 #fff;">
+                <i class="fa-solid fa-phone"></i> Contactos
+            </a>
+        </nav>
+    </header>
+
+
+
+    <div id="mobile-menu" class="hidden lg:hidden flex flex-col text-center px-4 py-2">
+        <a href="~/InicioSesion" class="block tracking-wide hover:underline">Inicio de sesión</a>
+        <a href="#" class="block tracking-wide hover:underline">Reservaciones</a>
+        <a href="#" class="block tracking-wide hover:underline">Contactos</a>
     </div>
 
-    <div class="button">
-        <button class="prev"><i class="fa-solid fa-arrow-left"></i></button>
-        <button class="next"><i class="fa-solid fa-arrow-right"></i></button>
-    </div>
 
+    <nav class="bg-[#264653]/60 flex flex-1 flex-col lg:flex-row p-7 justify-center text-lg m-2 rounded-lg">
+
+        <label for="tipoHabitacion" class="mx-3">Tipo de habitacion:</label>
+        <select name="tipoHabitacion" id="tipoHabitacion" class="rounded-lg px-3">
+            <option value="sencilla">Sencilla</option>
+            <option value="doble">Doble</option>
+        </select>
+
+        <label for="numPersonas" class="mx-3">Numero de personas:</label>
+        <input type="text" id="numPersonas" class="rounded-lg px-3">
+        <label for="fechaEntrada" class="mx-3">Fecha de entrada:</label>
+        <input type="text" id="fechaEntrada" class="rounded-lg px-3">
+        <label for="fechaSalida" class="mx-3">Fecha de salida:</label>
+        <input type="text" id="fechaSalida" class="rounded-lg px-3">
+        <button class="rounded-lg bg-[#FADADD] px-3 mx-3 hover:bg-[#FADADD]/70">Checar</button>
+    </nav>
 </div>
 
-<script src="~/Content/js/slide.js"></script>
+<!-- JS de Flatpickr -->
+<script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+
+<script>
+        flatpickr("#fechaEntrada", {
+            enableTime: false,
+            dateFormat: "Y-m-d",
+            minDate: "today"
+        });
+
+        flatpickr("#fechaSalida", {
+            enableTime: false,
+            dateFormat: "Y-m-d",
+            minDate: "today"
+        });
+</script>
+<script src="~/Content/js/scripts.js"></script>
 

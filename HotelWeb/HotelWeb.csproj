@@ -113,6 +113,7 @@
     <Compile Include="Controllers\ContactoController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\InicioSesionController.cs" />
+    <Compile Include="Controllers\LugaresController.cs" />
     <Compile Include="Controllers\ReservacionesController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -127,6 +128,7 @@
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\InicioSesion\Index.cshtml" />
     <Content Include="Views\Contacto\Index.cshtml" />
+    <Content Include="Views\Lugares\Index.cshtml" />
     <Content Include="Views\Reservaciones\Index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
