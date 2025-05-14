@@ -1,15 +1,49 @@
 ﻿
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Informacion de Contacto";
 }
+
 <div class="bg-[url('https://images.pexels.com/photos/2339009/pexels-photo-2339009.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2')] bg-cover bg-center min-h-screen flex flex-col "
      style="font-family: 'Open Sans', sans-serif;">
-
+    @if (ViewData["mensaje"] != null && ViewData["mensaje"].ToString() != string.Empty)
+    {
+        <div class="bg-[#264653]/30 text-white">
+            <p>@ViewData["mensaje"]</p>
+        </div>
+    }
     <div class="bg-[#1C1C1C]/30 backdrop-blur-md rounded-t-xl w-5/6 h-9/10 m-auto mt-12 flex-grow text-white">
         <!-- Radios + Labels -->
         <input type="radio" name="menu" id="home" hidden>
         <input type="radio" name="menu" id="ediciones" checked hidden>
         <input type="radio" name="menu" id="reservaciones" hidden>
+
+        <header class="flex justify-around text-black text-lg py-[30px] px-[20px] w-4/5">
+            <button id="toggle-btn" class="block lg:hidden focus:outline-none">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                          d="M4 6h16M4 12h16M4 18h16" />
+                </svg>
+            </button>
+
+            <div>
+                <a href="#" class="font-semibold text-3xl w-[50px]"><i class="fa-solid fa-torii-gate"></i></a>
+            </div>
+
+            <nav class="hidden lg:flex justify-center gap-4 font-semibold tracking-widest">
+                <a href="/inicioSesion.html" class="no-underline mx-4"
+                   style="text-shadow: -1px -1px 0 #fff, 1px -1px 0 #fff, -1px 1px 0 #fff, 1px 1px 0 #fff;">
+                    <i class="fa-solid fa-circle-user"></i> Inicio de sesión
+                </a>
+                <a href="/reservaciones.html" class="no-underline mx-4"
+                   style="text-shadow: -1px -1px 0 #fff, 1px -1px 0 #fff, -1px 1px 0 #fff, 1px 1px 0 #fff;">
+                    <i class="fa-solid fa-calendar-days"></i> Reservaciones
+                </a>
+                <a href="#" class="no-underline mx-4"
+                   style="text-shadow: -1px -1px 0 #fff, 1px -1px 0 #fff, -1px 1px 0 #fff, 1px 1px 0 #fff;">
+                    <i class="fa-solid fa-phone"></i> Contactos
+                </a>
+            </nav>
+        </header>
 
         <nav class="flex justify-center p-3 gap-4 text-[#FFFFFF]">
             <button id="toggle-btn" class="block lg:hidden focus:outline-none">
@@ -23,8 +57,8 @@
                    class="hidden lg:flex space-x-6 tracking-wide hover:underline cursor-pointer">HOME</label>
             <label for="ediciones"
                    class="hidden lg:flex space-x-6 tracking-wide hover:underline cursor-pointer">
-                INFORMACION DE
-                CONTACTO
+                Datos
+                Personales
             </label>
             <label for="reservaciones"
                    class="hidden lg:flex space-x-6 tracking-wide hover:underline cursor-pointer">RESERVACIONES</label>
@@ -56,72 +90,58 @@
                             </div>
                         </div>
                     </div>
-                    <div class="flex flex-row flex-wrap m-auto gap-4">
-                        <form action="/Contacto/Guardar" method="post"></form> <!-- LLENAR BIEN EL FORMS PARA ENVIAR DATOS -->
-                        <div class="flex flex-1 flex-col border rounded-lg lg:w-[825px] p-8 gap-1">
-                            <label for="">Nombre</label>
-                            <input type="text"
-                                   class="rounded-full px-3 py-2 bg-transparent border border-white/30 focus:outline-none focus:ring-1 focus:ring-[#FFFFFF]">
-                            <label for="">Primer Apellido</label>
-                            <input type="text"
-                                   class="rounded-full px-3 py-2 bg-transparent border border-white/30 focus:outline-none focus:ring-1 focus:ring-[#FFFFFF]">
-                            <label for="">Segundo Apellido</label>
-                            <input type="text"
-                                   class="rounded-full px-3 py-2 bg-transparent border border-white/30 focus:outline-none focus:ring-1 focus:ring-[#FFFFFF]">
-                            <label for="">Calle</label>
-                            <input type="text"
-                                   class="rounded-full px-3 py-2 bg-transparent border border-white/30 focus:outline-none focus:ring-1 focus:ring-[#FFFFFF]">
-                            <label for="">Numero</label>
-                            <input type="text"
-                                   class="rounded-full px-3 py-2 bg-transparent border border-white/30 focus:outline-none focus:ring-1 focus:ring-[#FFFFFF]">
-                            <label for="">Colonia</label>
-                            <input type="text"
-                                   class="rounded-full px-3 py-2 bg-transparent border border-white/30 focus:outline-none focus:ring-1 focus:ring-[#FFFFFF]">
-                            <label for="">Codigo Postal</label>
-                            <input type="text"
-                                   class="rounded-full px-3 py-2 bg-transparent border border-white/30 focus:outline-none focus:ring-1 focus:ring-[#FFFFFF]">
-                            <label for="">Ciudad</label>
-                            <input type="text"
-                                   class="rounded-full px-3 py-2 bg-transparent border border-white/30 focus:outline-none focus:ring-1 focus:ring-[#FFFFFF]">
+                    <form action="/Contacto/Guardar" method="post">
+                        <div class="flex flex-row flex-wrap m-auto gap-4">
+                            <div class="flex flex-1 flex-col border rounded-lg lg:w-[825px] p-8 gap-1">
+                                <label for="">Nombre</label>
+                                <input type="text" name="nombre"
+                                       class="rounded-full px-3 py-2 bg-transparent border border-white/30 focus:outline-none focus:ring-1 focus:ring-[#FFFFFF]">
+                                <label for="">Primer Apellido</label>
+                                <input type="text" name="apellido1"
+                                       class="rounded-full px-3 py-2 bg-transparent border border-white/30 focus:outline-none focus:ring-1 focus:ring-[#FFFFFF]">
+                                <label for="">Segundo Apellido</label>
+                                <input type="text" name="apellido2"
+                                       class="rounded-full px-3 py-2 bg-transparent border border-white/30 focus:outline-none focus:ring-1 focus:ring-[#FFFFFF]">
+                                <label for="">Calle</label>
+                                <input type="text" name="calle"
+                                       class="rounded-full px-3 py-2 bg-transparent border border-white/30 focus:outline-none focus:ring-1 focus:ring-[#FFFFFF]">
+                                <label for="">Numero</label>
+                                <input type="text" name="numero"
+                                       class="rounded-full px-3 py-2 bg-transparent border border-white/30 focus:outline-none focus:ring-1 focus:ring-[#FFFFFF]">
+                                <label for="">Colonia</label>
+                                <input type="text" name="colonia"
+                                       class="rounded-full px-3 py-2 bg-transparent border border-white/30 focus:outline-none focus:ring-1 focus:ring-[#FFFFFF]">
+                                <label for="">Codigo Postal</label>
+                                <input type="text" name="codigoPostal"
+                                       class="rounded-full px-3 py-2 bg-transparent border border-white/30 focus:outline-none focus:ring-1 focus:ring-[#FFFFFF]">
+                                <label for="">Ciudad</label>
+                                <input type="text" name="ciudad"
+                                       class="rounded-full px-3 py-2 bg-transparent border border-white/30 focus:outline-none focus:ring-1 focus:ring-[#FFFFFF]">
+                            </div>
+                            <div class="flex flex-1 flex-col border rounded-lg  p-8 gap-1">
+                                <label for="">Correo electronico</label>
+                                <input type="email" name="correo"
+                                       class="rounded-full px-3 py-2 bg-transparent border border-white/30 focus:outline-none focus:ring-1 focus:ring-[#FFFFFF]">
+                                <label for="">Telefono</label>
+                                <input type="tel" name="celular"
+                                       class="rounded-full px-3 py-2 bg-transparent border border-white/30 focus:outline-none focus:ring-1 focus:ring-[#FFFFFF]">
+                                <label for="">Username</label>
+                                <input type="text" name="usuario"
+                                       class="rounded-full px-3 py-2 bg-transparent border border-white/30 focus:outline-none focus:ring-1 focus:ring-[#FFFFFF]">
+                            </div>
                         </div>
-                        <div class="flex flex-1 flex-col border rounded-lg  p-8 gap-1">
-                            <label for="">Correo electronico</label>
-                            <input type="email"
-                                   class="rounded-full px-3 py-2 bg-transparent border border-white/30 focus:outline-none focus:ring-1 focus:ring-[#FFFFFF]">
-                            <label for="">Telefono</label>
-                            <input type="tel"
-                                   class="rounded-full px-3 py-2 bg-transparent border border-white/30 focus:outline-none focus:ring-1 focus:ring-[#FFFFFF]">
-                            <label for="">Username</label>
-
-                            <input type="text"
-                                   class="rounded-full px-3 py-2 bg-transparent border border-white/30 focus:outline-none focus:ring-1 focus:ring-[#FFFFFF]">
-                            <button class="bg-[#D72638]/50  rounded-full text-xl px-3 py-1 hover:bg-[#D72638]/70 ml-auto"
+                        <div class="flex justify-center gap-5">
+                            <button class="bg-[#D72638]/50  rounded-full text-xl px-4 py-2 hover:bg-[#D72638]/70 "
                                     name="actualizar">
-                                Actualizar
+                                Borrar
                             </button>
-
-                            <label for="">Password</label>
-
-                            <input type="password"
-                                   class="rounded-full px-3 py-2 bg-transparent border border-white/30 focus:outline-none focus:ring-1 focus:ring-[#FFFFFF]">
-                            <button class="bg-[#D72638]/50  rounded-full text-xl px-3 py-1 hover:bg-[#D72638]/70 ml-auto"
-                                    name="actualizar">
+                            <button class="bg-[#D72638]/50  rounded-full text-xl px-4 py-2 hover:bg-[#D72638]/70 "
+                                    name="actualizar" type="submit">
                                 Actualizar
                             </button>
 
                         </div>
-                    </div>
-                    <div class="flex justify-center gap-5">
-                        <button class="bg-[#D72638]/50  rounded-full text-xl px-4 py-2 hover:bg-[#D72638]/70 "
-                                name="actualizar">
-                            Borrar
-                        </button>
-                        <button class="bg-[#D72638]/50  rounded-full text-xl px-4 py-2 hover:bg-[#D72638]/70 "
-                                name="actualizar">
-                            Actualizar
-                        </button>
-
-                    </div>
+                    </form>
                 </div>
             </div>
             <div class="contenido  flex-grow duration-1500 ease-in" id="contenido-reservaciones">
@@ -156,4 +176,5 @@
 </div>
 
 
-<script src="~/Content/js/scripts.js"></script>
+<script src="scripts.js"></script>
+
