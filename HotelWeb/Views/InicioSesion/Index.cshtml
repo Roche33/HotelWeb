@@ -43,14 +43,36 @@
                         Iniciar sesión
                     </button>
                     <div class="flex justify-between w-full p-2">
-                        <a href="#" class="underline hover:text-[#FADADD]/70 transition-all duration-200">
+                        <a href="#" onclick="openModal(); return false; " class="underline hover:text-[#FADADD]/70 transition-all duration-200">
                             ¿Olvidaste
                             tu
                             contraseña?
                         </a>
                     </div>
+
                 </div>
             </form>
+            <div id="modal" class="fixed inset-0 bg-black/50 flex items-center justify-center hidden z-1000">
+                <form action="/InicioSesion/RecuperarContrasena" method="post">
+                    <div class="bg-[#FADADD]/80 p-6 rounded-lg shadow-lg w-96">
+                        <h2 class="text-lg font-bold mb-4">Recuperar contraseña</h2>
+                        <p class="mb-2 text-sm">Ingresa tu correo electrónico:</p>
+                        <input id="correo" type="email" name="correo"
+                               class="w-full p-2 border border-gray-300 rounded mb-4 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                               placeholder="ejemplo@correo.com" />
+                        <div class="flex justify-end space-x-2">
+                            <button onclick="closeModal()" type="button"
+                                    class="bg-gray-300 hover:bg-gray-400 text-gray-700 px-4 py-2 rounded">
+                                Cancelar
+                            </button>
+                            <button onclick="closeModal()" type="submit"
+                                    class="bg-[#264653] hover:bg-[#264653]/50 text-white px-4 py-2 rounded">
+                                Enviar
+                            </button>
+                        </div>
+                    </div>
+                </form>
+            </div>
             <!-- Signup Form -->
             <form action="/InicioSesion/Guardar" method="post">
                 <input type="radio" name="menu1" id="reg" checked class="hidden">
@@ -151,3 +173,4 @@
         flex-direction: column;
     }
 </style>
+
