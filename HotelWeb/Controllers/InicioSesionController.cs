@@ -16,6 +16,14 @@ namespace HotelWeb.Controllers
             return View();
         }
 
+        public ActionResult IniciarSesion(FormCollection form)
+        {
+
+            string nombre = form["nombre"];
+            ViewData["mensaje"] = "La informacion se guardo correctamente";
+            return View("Index");
+        }
+
         public ActionResult Guardar(FormCollection form)
         {
             string nombre = form["nombre"];

@@ -91,7 +91,12 @@
     <Content Include="Content\css\cuentaHuesped.css" />
     <Content Include="Content\css\Style01.css" />
     <Content Include="Content\css\Style02.css" />
-    <Content Include="Content\Img\calamardo.jpg" />
+    <Content Include="Content\Img\avatar\calamardo.jpg" />
+    <Content Include="Content\Img\avatar\homero.jpg" />
+    <Content Include="Content\Img\avatar\luffy.jpg" />
+    <Content Include="Content\Img\avatar\pulga.jpg" />
+    <Content Include="Content\Img\avatar\rick.jpg" />
+    <Content Include="Content\Img\avatar\uno.jpg" />
     <Content Include="Content\Img\fondo.jpg" />
     <Content Include="Content\Img\kanazawa.jpg" />
     <Content Include="Content\Img\kioto.jpg" />

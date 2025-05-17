@@ -26,18 +26,14 @@
                 <a href="/Home" class="font-semibold text-3xl w-[50px]" style="text-shadow: -1px -1px 0 #fff, 1px -1px 0 #fff, -1px 1px 0 #fff, 1px 1px 0 #fff;"><i class="fa-solid fa-torii-gate"></i></a>
             </div>
 
-            <nav class="hidden lg:flex justify-center gap-4 font-semibold tracking-widest w-5/6">
+            <nav class="hidden lg:flex justify-end gap-4 font-semibold tracking-widest w-5/6">
                 <a href="/Home" class="no-underline mx-4"
                    style="text-shadow: -1px -1px 0 #fff, 1px -1px 0 #fff, -1px 1px 0 #fff, 1px 1px 0 #fff;">
-                    <i class="fa-solid fa-circle-user"></i> Inicio de sesión
+                    <i class="fa-solid fa-house"></i> Inicio
                 </a>
-                <a href="/reservaciones.html" class="no-underline mx-4"
+                <a href="/Reservaciones" class="no-underline mx-4"
                    style="text-shadow: -1px -1px 0 #fff, 1px -1px 0 #fff, -1px 1px 0 #fff, 1px 1px 0 #fff;">
                     <i class="fa-solid fa-calendar-days"></i> Reservaciones
-                </a>
-                <a href="#" class="no-underline mx-4"
-                   style="text-shadow: -1px -1px 0 #fff, 1px -1px 0 #fff, -1px 1px 0 #fff, 1px 1px 0 #fff;">
-                    <i class="fa-solid fa-phone"></i> Contactos
                 </a>
             </nav>
         </header>
@@ -45,23 +41,50 @@
 
 
         <div id="mobile-menu" class="lg:hidden flex flex-col text-center px-4 py-2">
-            <a href="/reservaciones.html" class="no-underline mx-4">
+            <a href="/#" class="no-underline mx-4">
+                <i class="fa-solid fa-calendar-days"></i> Inicio
+            </a>
+            <a href="/Reservaciones" class="no-underline mx-4">
                 <i class="fa-solid fa-calendar-days"></i> Reservaciones
             </a>
-            <a href="#" class="no-underline mx-4">
-                <i class="fa-solid fa-phone"></i> Contactos
-            </a>
+            
 
         </div>
         <div class="flex flex-col gap-4 p-7 w-full">
             <div class="flex justify-center items-center">
                 <div class="flex flex-col items-center justify-center">
-                    <img src="~/Content/Img/calamardo.jpg" alt="Imagen" class="w-[5rem] rounded-full">
+                    <img id="imagenPrincipal" src="~/Content/Img/avatar/calamardo.jpg" alt="Imagen" class="w-[5rem] h-[4.5rem] rounded-full cursor-pointer bg-auto" onclick="mostrarImagenes()">
                     <div class="p-3 text-center">
                         <p class="text-xl">Misael Roche</p>
                         <p class="text-sm">correo@gmail.com</p>
                     </div>
                 </div>
+            </div>
+            <div id="modal"
+                 class="fixed inset-0 bg-black/50 items-center justify-center hidden z-1000 flex">
+                <form action="/InicioSesion/RecuperarContrasena" method="post">
+                    <div class="bg-[#1C1C1C]/40 p-6 rounded-lg shadow-lg w-96 flex flex-col">
+                        <div>
+                            <h2 class="text-lg font-bold mb-4 text-center">Elige tu avatar</h2>
+                        </div>
+                        <div class="flex gap-2 flex-wrap justify-center">
+                            <img src="~/Content/Img/avatar/rick.jpg" alt="Imagen"
+                                 class="w-[5rem] h-[4.5rem] rounded-full cursor-pointer bg-auto" onclick="cambiarImagen(this)">
+                            <img src="~/Content/Img/avatar/calamardo.jpg" alt="Imagen"
+                                 class="w-[5rem] h-[4.5rem] rounded-full cursor-pointer bg-auto" onclick="cambiarImagen(this)">
+                            <img src="~/Content/Img/avatar/luffy.jpg" alt="Imagen"
+                                 class="w-[5rem] h-[4.5rem] rounded-full cursor-pointer bg-auto" onclick="cambiarImagen(this)">
+                            <img src="~/Content/Img/avatar/homero.jpg" alt="Imagen"
+                                 class="w-[5rem] h-[4.5rem] rounded-full cursor-pointer bg-auto" onclick="cambiarImagen(this)">
+                            <img src="~/Content/Img/avatar/uno.jpg" alt="Imagen"
+                                 class="w-[5rem] h-[4.5rem] rounded-full cursor-pointer bg-auto" onclick="cambiarImagen(this)">
+                            <img src="~/Content/Img/avatar/pulga.jpg" alt="Imagen"
+                                 class="w-[5rem] h-[4.5rem] rounded-full cursor-pointer bg-auto" onclick="cambiarImagen(this)">
+
+                        </div>
+
+                    </div>
+                </form>
             </div>
             <form action="/Contacto/Guardar" method="post">
                 <div class="flex flex-row flex-wrap m-auto gap-4">

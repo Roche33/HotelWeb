@@ -3,82 +3,89 @@
     ViewBag.Title = "Reservaciones";
 }
 
-<div class="bg-[url('https://images.pexels.com/photos/271639/pexels-photo-271639.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1')] bg-center bg-cover min-h-dvh">
+<div class="bg-[url('https://images.pexels.com/photos/1673978/pexels-photo-1673978.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1')] bg-center bg-cover min-h-dvh flex flex-col" style="font-family: 'Open Sans', sans-serif;">
 
-    <!-- Radios + Labels -->
-    <input type="radio" name="menu" id="inicio" hidden>
-    <input type="radio" name="menu" id="reservaciones" checked hidden>
-    <input type="radio" name="menu" id="contacto" hidden>
 
-    <header class="flex justify-around text-black text-lg py-[30px] px-[20px] w-4/5">
+
+    <header class="flex justify-around text-black text-lg py-[30px] px-[20px] w-full">
         <button id="toggle-btn" class="block lg:hidden focus:outline-none">
             <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
             </svg>
         </button>
 
-        <div>
-            <a href="~/Home" class="font-semibold text-3xl w-[50px]"><i class="fa-solid fa-torii-gate"></i></a>
+        <div class="w-1/6 flex justify-center">
+            <a href="/Home" class="font-semibold text-3xl w-[50px]"
+               style="text-shadow: -1px -1px 0 #fff, 1px -1px 0 #fff, -1px 1px 0 #fff, 1px 1px 0 #fff;">
+                <i class="fa-solid fa-torii-gate"></i>
+            </a>
         </div>
 
-        <nav class="hidden lg:flex justify-center gap-4 font-semibold tracking-widest">
-            <a href="~/InicioSesion" class="no-underline mx-4"
+        <nav class="hidden lg:flex justify-end gap-4 font-semibold tracking-widest w-5/6">
+            <a href="/Home" class="no-underline mx-4"
                style="text-shadow: -1px -1px 0 #fff, 1px -1px 0 #fff, -1px 1px 0 #fff, 1px 1px 0 #fff;">
                 <i class="fa-solid fa-circle-user"></i> Inicio de sesión
             </a>
-            <a href="#" class="no-underline mx-4"
+            <a href="/reservaciones.html" class="no-underline mx-4"
                style="text-shadow: -1px -1px 0 #fff, 1px -1px 0 #fff, -1px 1px 0 #fff, 1px 1px 0 #fff;">
                 <i class="fa-solid fa-calendar-days"></i> Reservaciones
-            </a>
-            <a href="#" class="no-underline mx-4"
-               style="text-shadow: -1px -1px 0 #fff, 1px -1px 0 #fff, -1px 1px 0 #fff, 1px 1px 0 #fff;">
-                <i class="fa-solid fa-phone"></i> Contactos
             </a>
         </nav>
     </header>
 
 
 
-    <div id="mobile-menu" class="hidden lg:hidden flex flex-col text-center px-4 py-2">
-        <a href="~/InicioSesion" class="block tracking-wide hover:underline">Inicio de sesión</a>
+    <div id="mobile-menu" class=" lg:hidden flex flex-col text-center px-4 py-2 text-2xl">
+        <a href="/inicioSesion.html" class="block tracking-wide hover:underline">Inicio de sesión</a>
         <a href="#" class="block tracking-wide hover:underline">Reservaciones</a>
-        <a href="#" class="block tracking-wide hover:underline">Contactos</a>
+
     </div>
+    <div class="flex flex-1 w-full  justify-center items-center">
 
+        <nav class="bg-white flex flex-1 flex-col lg:flex-row p-3  items-center text-md m-2 rounded-sm w-1/2 absolute justify-around flex-wrap">
 
-    <nav class="bg-[#264653]/60 flex flex-1 flex-col lg:flex-row p-7 justify-center text-lg m-2 rounded-lg">
+            <select name="tipoHabitacion" id="tipoHabitacion" class="rounded-sm px-3 border">
+                <option value="" disabled selected>Tipo de Habitacion</option>
+                <option value="sencilla">Sencilla</option>
+                <option value="doble">Doble</option>
+            </select>
 
-        <label for="tipoHabitacion" class="mx-3">Tipo de habitacion:</label>
-        <select name="tipoHabitacion" id="tipoHabitacion" class="rounded-lg px-3">
-            <option value="sencilla">Sencilla</option>
-            <option value="doble">Doble</option>
-        </select>
-
-        <label for="numPersonas" class="mx-3">Numero de personas:</label>
-        <input type="text" id="numPersonas" class="rounded-lg px-3">
-        <label for="fechaEntrada" class="mx-3">Fecha de entrada:</label>
-        <input type="text" id="fechaEntrada" class="rounded-lg px-3">
-        <label for="fechaSalida" class="mx-3">Fecha de salida:</label>
-        <input type="text" id="fechaSalida" class="rounded-lg px-3">
-        <button class="rounded-lg bg-[#FADADD] px-3 mx-3 hover:bg-[#FADADD]/70">Checar</button>
-    </nav>
+            <!--<label for="numPersonas" class="mx-3">Numero de personas:</label>-->
+            <!--<input type="text" id="numPersonas" class="rounded-sm px-3 border w-24" placeholder="Personas">-->
+            <select name="tipoHabitacion" id="numPersonas" class="rounded-sm px-3 border">
+                <option value="" disabled selected>Personas</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+            </select>
+            <!--<label for="fechaEntrada" class="mx-3">Fecha de entrada:</label>-->
+            <input type="text" id="fechaEntrada" class="rounded-sm px-3 border w-32" placeholder="Entrada">
+            <!--<label for="fechaSalida" class="mx-3">Fecha de salida:</label>-->
+            <input type="text" id="fechaSalida" class="rounded-sm px-3 border w-32" placeholder="Salida">
+            <button class="rounded-sm bg-[#264653]/90 px-3 mx-3 hover:bg-[#264653]/70">
+                <i class="fa-solid fa-magnifying-glass"></i>Reservar
+            </button>
+        </nav>
+    </div>
 </div>
+
 
 <!-- JS de Flatpickr -->
 <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
 
 <script>
-        flatpickr("#fechaEntrada", {
-            enableTime: false,
-            dateFormat: "Y-m-d",
-            minDate: "today"
-        });
+    flatpickr("#fechaEntrada", {
+        enableTime: false,
+        dateFormat: "Y-m-d",
+        minDate: "today"
+    });
 
-        flatpickr("#fechaSalida", {
-            enableTime: false,
-            dateFormat: "Y-m-d",
-            minDate: "today"
-        });
+    flatpickr("#fechaSalida", {
+        enableTime: false,
+        dateFormat: "Y-m-d",
+        minDate: "today"
+    });
 </script>
-<script src="~/Content/js/scripts.js"></script>
-

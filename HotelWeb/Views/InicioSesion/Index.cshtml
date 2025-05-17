@@ -30,14 +30,14 @@
 
         <div class="p-4">
             <!-- Login Form -->
-            <form action="/InicioSesion/Guardar" method="post">
+            <form action="/InicioSesion/IniciarSesion" method="post">
                 <div id="contenido-login" class="contenido flex flex-col items-center gap-4 p-4  rounded-lg">
                     <input type="text" name="usuario"
                            class=" text-white p-3 rounded-full bg-[#264653]/50 w-full placeholder-white placeholder-opacity-80 focus:outline-none focus:ring-2 focus:ring-[#FADADD]"
                            placeholder="Usuario">
                     <input type="password" name="contrasena"
                            class="text-white p-3 rounded-full bg-[#264653]/50 w-full placeholder-white placeholder-opacity-80 focus:outline-none focus:ring-2 focus:ring-[#FADADD]"
-                           placeholder="Contraseña">
+                           placeholder="Contraseña" pattern="[A-Za-z]{6,}" required>
                     <button class="bg-[#FADADD]/50 text-white rounded-full text-2xl px-4 py-2 w-full hover:bg-[#FADADD]/70 transition-all duration-200"
                             name="sesion" type="submit">
                         Iniciar sesión

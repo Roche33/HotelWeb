@@ -11,3 +11,11 @@ function openModal() {
 function closeModal() {
     document.getElementById('modal').classList.add('hidden');
 }
+function mostrarImagenes() {
+    document.getElementById("modal").classList.remove("hidden");
+}
+function cambiarImagen(imagenSeleccionada) {
+    const imagenPrincipal = document.getElementById("imagenPrincipal");
+    imagenPrincipal.src = imagenSeleccionada.src;
+    closeModal();
+}
